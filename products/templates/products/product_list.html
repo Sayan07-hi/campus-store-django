@@ -6,12 +6,85 @@ Products | Campus Store
 
 {% block content %}
 
-    {% for product in products %}
+<section class="products-page">
+
+    <div class="page-header">
         <div>
-            <h2>{{ product.name }}</h2>
-            <p>{{ product.description }}</p>
-            <p>Price: ₹{{ product.price }}</p>
+            <p class="eyebrow">CAMPUS STORE</p>
+            <h1>Products</h1>
+            <p>Buy and sell useful items with fellow students.</p>
         </div>
-    {% endfor %}
+
+        <button class="add-product-btn">
+            + Add Product
+        </button>
+    </div>
+
+
+    <div class="product-grid">
+
+        {% for product in products %}
+
+        <div class="product-card">
+
+            <!-- Image -->
+            <div class="product-image">
+                Product Image
+            </div>
+
+            <!-- Product information -->
+            <div class="product-info">
+
+                <h2>{{ product.name }}</h2>
+
+                <p class="description">
+                    {{ product.description }}
+                </p>
+
+                <div class="product-footer">
+
+                    <div>
+                        <span class="price-label">Price</span>
+                        <p class="price">
+                            ₹{{ product.price }}
+                        </p>
+                    </div>
+
+                    <button
+                        class="favorite-btn"
+                        type="button"
+                    >
+                        ♡
+                    </button>
+
+                </div>
+
+                <p class="seller">
+                    Listed by {{ product.seller.username }}
+                </p>
+
+                <a
+                    href="/products/{{ product.id }}/"
+                    class="details-btn"
+                >
+                    View Details →
+                </a>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <div class="empty-products">
+            <h2>No products yet</h2>
+            <p>There are currently no products listed.</p>
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
 
 {% endblock %}

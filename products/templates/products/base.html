@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>{% block title %}Campus Store{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'products/css/style.css' %}">
 
     {% block extra_css %}
     {% endblock %}
@@ -15,7 +19,6 @@
     <header>
         <nav>
             <a href="/">Campus Store</a>
-
             <a href="/products/">Products</a>
         </nav>
     </header>
@@ -30,6 +33,7 @@
     </footer>
 
     {% block extra_js %}
+        <script src="{% static 'products/js/script.js' %}"></script>
     {% endblock %}
 
 </body>

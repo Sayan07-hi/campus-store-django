@@ -41,6 +41,13 @@ nav a:first-child {
     font-size: 22px;
 }
 
+.logo img {
+    width: 120px;
+    height: 45px;
+    object-fit: contain;
+    display: block;
+}
+
 nav a:last-child {
     font-size: 15px;
 }
@@ -349,4 +356,13 @@ nav a:last-child {
         grid-template-columns: 1fr;
     }
 
+}
+.logo img {
+    width: 250px;
+    height: 80px;
+    object-fit: contain;
+    display: block;
+    margin-left:-240px;
+    transform: scale(1.8);
+    transform-origin: left center;
 }

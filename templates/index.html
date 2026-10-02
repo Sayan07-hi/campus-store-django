@@ -26,7 +26,7 @@
         <div class="nav-container">
 
             <a href="/" class="logo">
-                Campus Store
+                <img src="{% static 'images/logo.jpeg' %}" alt="Campus Store Logo">
             </a>
 
             <nav class="nav-links">
@@ -208,24 +208,54 @@
             </div>
 
 
-            <div class="product-placeholder">
+            <div class="product-grid">
 
-                <div class="placeholder-icon">
-                    🛍️
-                </div>
+                {% for product in products %}
 
-                <h3>
-                    Products will appear here
-                </h3>
+                    <div class="product-card">
 
-                <p>
-                    Once students start listing products,
-                    you'll see them here.
-                </p>
+                        <h3>{{ product.name }}</h3>
 
-                <a href="/products/" class="text-link">
-                    View all products →
-                </a>
+                        <p>{{ product.description }}</p>
+
+                        <p class="product-price">
+                            ₹{{ product.price }}
+                        </p>
+
+                        <p class="product-seller">
+                            Sold by {{ product.seller.username }}
+                        </p>
+
+                        <a href="/products/{{ product.id }}/" class="text-link">
+                            View Product →
+                        </a>
+
+                    </div>
+
+                {% empty %}
+
+                    <div class="product-placeholder">
+
+                        <div class="placeholder-icon">
+                            🛍️
+                        </div>
+
+                        <h3>
+                            Products will appear here
+                        </h3>
+
+                        <p>
+                            Once students start listing products,
+                            you'll see them here.
+                        </p>
+
+                        <a href="/products/" class="text-link">
+                            View all products →
+                        </a>
+
+                    </div>
+
+                {% endfor %}
 
             </div>
 

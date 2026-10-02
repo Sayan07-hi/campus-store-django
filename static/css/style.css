@@ -11,6 +11,8 @@ html {
 }
 
 body {
+    width:100%;
+    padding:0;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     background: #f8fafc;
@@ -36,7 +38,7 @@ header {
 nav {
     max-width: 1150px;
     margin: auto;
-    padding: 18px 24px;
+    padding: 2px 10px;
 
     display: flex;
     align-items: center;
@@ -44,9 +46,18 @@ nav {
 }
 
 nav a:first-child {
-    font-size: 24px;
-    font-weight: 700;
-    color: #123b6d;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 250px;
+    height: 80px;
+    object-fit: contain;
+    display: block;
+    margin-left:-130px;
+    transform: scale(1.8);
+    transform-origin: left center;
 }
 
 nav a:not(:first-child) {
@@ -239,6 +250,60 @@ nav a:not(:first-child):hover {
    RECENT PRODUCTS
 ========================= */
 
+.product-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.product-card {
+    background: white;
+
+    border: 1px solid #e5e9ef;
+    border-radius: 12px;
+
+    padding: 25px;
+
+    transition: 0.2s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 12px 30px rgba(25, 45, 70, 0.08);
+}
+
+.product-card h3 {
+    margin: 0 0 10px;
+
+    font-size: 20px;
+
+    color: #142d4c;
+}
+
+.product-card > p {
+    color: #6b7788;
+
+    font-size: 14px;
+}
+
+.product-card .product-price {
+    margin-top: 18px;
+
+    font-size: 22px;
+    font-weight: 700;
+
+    color: #123b6d;
+}
+
+.product-card .product-seller {
+    font-size: 13px;
+
+    color: #8a95a5;
+}
+
 .product-placeholder {
     background: white;
 
@@ -347,6 +412,10 @@ footer p {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .hero {
         padding: 70px 24px;
     }
@@ -359,16 +428,30 @@ footer p {
         margin-left: 24px;
         margin-right: 24px;
     }
+
+    .logo img {
+        width: 190px;
+        height: 60px;
+    }
 }
 
 
 @media (max-width: 550px) {
 
     nav {
-        padding: 15px 18px;
+        padding: 8px 18px;
+    }
+
+    .logo img {
+        width: 150px;
+        height: 50px;
     }
 
     .category-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-grid {
         grid-template-columns: 1fr;
     }
 

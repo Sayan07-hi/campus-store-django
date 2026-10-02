@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Campus Store</title>
-</head>
-<body>
+{% extends "products/base.html" %}
 
-    <h1>Campus Store</h1>
+{% block title %}
+Products | Campus Store
+{% endblock %}
+
+{% block content %}
 
     {% for product in products %}
         <div>
@@ -15,5 +14,4 @@
         </div>
     {% endfor %}
 
-</body>
-</html>
+{% endblock %}
